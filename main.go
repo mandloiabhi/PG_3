@@ -65,12 +65,12 @@ func main() {
 		Handler: router,
 	}
 
-	router.Mount("/v1", v1Router)
 	//mux := http.NewServeMux()
 
-	v1Router.Get("/v1/users", apiCfg.handlerUsersCreate)
-
-	v1Router.Get("/v1/healthz", handlerReadiness)
+	v1Router.Get("/users", apiCfg.handlerUsersCreate)
+    
+	v1Router.Get("/healthz", handlerReadiness)
+	router.Mount("/v1", v1Router)
 	fmt.Println("server is listening on 8080")
 	//log.Fatal(srv.ListenAndServe())
 	//fmt.Println(("servers is staerd"))

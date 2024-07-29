@@ -6,8 +6,8 @@ import (
 	"time"
 
 	//"github.com/bootdotdev/projects/createusers/internal/database"
-	 "github.com/mandloiabhi/PG_3/internal/database"
 	"github.com/google/uuid"
+	"github.com/mandloiabhi/PG_3/internal/database"
 )
 
 func (cfg *apiConfig) handlerUsersCreate(w http.ResponseWriter, r *http.Request) {
@@ -29,6 +29,7 @@ func (cfg *apiConfig) handlerUsersCreate(w http.ResponseWriter, r *http.Request)
 		Name:      params.Name,
 	})
 	if err != nil {
+		println(err)
 		respondWithError(w, http.StatusInternalServerError, "Couldn't create user")
 		return
 	}
